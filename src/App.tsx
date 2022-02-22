@@ -1,11 +1,14 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+
+import useThreeJsScene from "./hooks/useThreeJsScene";
 
 function App() {
+  useThreeJsScene();
+
   return (
     <div className="App">
-      <p>Hello</p>
+      <div className="three-render-zone"></div>
     </div>
   );
 }
