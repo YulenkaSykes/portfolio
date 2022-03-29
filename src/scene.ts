@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
 import { MTLLoader } from "three/examples/jsm/loaders/MTLLoader";
+import gsap from "gsap";
 
 const initThreeJsScene = () => {
   const scene = new THREE.Scene();
@@ -32,18 +33,22 @@ const initThreeJsScene = () => {
 
   const loader = new OBJLoader();
 
+  const imgLoader = new THREE.TextureLoader();
+  const height = imgLoader.load("./assets/height.png");
+
   loader.load(
     // resource URL
     './assets/cat.obj',
     // called when resource is loaded
     function ( catObj: any ) {
       const cat = catObj.children[1];
+      cat.name = "cat";
       catWrapperObj.add(cat);
 
       cat.scale.set(2,2,2);
       cat.position.set(0, -5, -5);
 
-      cat.material = new THREE.MeshStandardMaterial({color: "white", metalness: 0.8, roughness: 0.5});
+      cat.material = new THREE.MeshStandardMaterial({color: "white", metalness: 0.8, roughness: 0.5, displacementMap: height, displacementScale: 0});
 
 
       console.log(cat,"!!!");
@@ -57,6 +62,21 @@ const initThreeJsScene = () => {
       console.log( 'An error happened', error );
     }
   );
+
+   window.addEventListener("click", (e) => {
+    const cat: any = catWrapperObj.getObjectByName("cat");
+    gsap.fromTo(cat.material, {displacementScale: 0}, {displacementScale: 2});
+    gsap.fromTo(cat.material, {displacementScale: 2}, {displacementScale: 0, delay: 3});
+    console.log("cat", cat);
+    cat.material.displacementScale = (e.pageX - window.innerWidth / 2) * 0.0075;
+  });
+
+
+  // window.addEventListener("mousemove", (e) => {
+  //   const cat: any = catWrapperObj.getObjectByName("cat");
+  //   console.log("cat", cat);
+  //   cat.material.displacementScale = (e.pageX - window.innerWidth / 2) * 0.0075;
+  // });
 
   const light = new THREE.PointLight("orange", 15, 10);
   light.position.set(0, -5, 0);
