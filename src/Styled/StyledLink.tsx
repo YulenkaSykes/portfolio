@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 
 export const StyledLink = styled(Link)`
-  color: palevioletred;
+  color: white;
   font-weight: bold;
   margin: 10px;
 `;

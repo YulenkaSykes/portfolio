@@ -2,9 +2,9 @@
 *{
   color: white;
   font-family: 'Heebo', sans-serif;
+  /* background-image: linear-gradient(150deg, #0919f6, #7700ff, #face08, #ff0000); */
 }
 
 .overflow {
   overflow: visible;
-
 }
