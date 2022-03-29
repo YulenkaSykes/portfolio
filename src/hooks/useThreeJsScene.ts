@@ -5,8 +5,6 @@ const useThreeJsScene = () => {
     useEffect(()=>{
         initThreeJsScene();
     },[]);
-
-    
 }
 
 export default useThreeJsScene;
