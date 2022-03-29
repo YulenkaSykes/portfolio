@@ -3,3 +3,8 @@
   color: white;
   font-family: 'Heebo', sans-serif;
 }
+
+.overflow {
+  overflow: visible;
+
+}

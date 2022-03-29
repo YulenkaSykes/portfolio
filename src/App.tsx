@@ -12,8 +12,8 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-      <div className="three-render-zone"></div>
-        <Header alignItems = "flex-start">
+        <div className="three-render-zone"></div>
+        <Header alignItems="flex-start">
           <StyledLink to={"/"}>Main</StyledLink>
           <StyledLink to={"/repositories"}>Repositories</StyledLink>
         </Header>
