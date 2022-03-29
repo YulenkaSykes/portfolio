@@ -6,6 +6,5 @@ export const Header = styled(Row)`
   height: 10%;
   font-size: 1em;
   padding: 0.25em 1em;
-  border: 2px solid palevioletred;
-  border-radius: 3px;
+  box-shadow: 3px 3px 3px white;
 `;
